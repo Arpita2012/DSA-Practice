@@ -28,6 +28,8 @@ public:
                res.push_back(m[target - nums[i]]);
                 res.push_back(i);
                 
+                break;
+                
             }else{
                 m[nums[i]]=i; 
             }
