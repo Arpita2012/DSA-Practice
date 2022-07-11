@@ -28,11 +28,7 @@ public:
             
         }
         
-       /* for(auto x : m_r){
-            if((m_m.find(x.first)==m_m.end()) || (m_m[x.first]<x.second)){
-                return false;
-            }
-        }*/
+      
         
         if(m_r == m_m){
             return true;
