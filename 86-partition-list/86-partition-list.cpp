@@ -20,6 +20,55 @@ public:
             if(head->val < x){
                 
                 if(!l1_head){
+                    l1_head=head;
+                    l1_tail=l1_head;
+                    
+                    
+                }else{
+                    ListNode* t = head;
+                    l1_tail->next = t;
+                    l1_tail =t;
+                }
+                
+            }else{
+                
+                 if(!l2_head){
+                    l2_head=head;
+                    l2_tail=l2_head;
+                }else{
+                    ListNode* t = head;
+                    l2_tail->next = t;
+                    l2_tail =t;
+                }
+                
+            }
+            head=head->next;
+        }
+        if(l1_tail)
+            l1_tail->next=NULL;
+        
+        if(l2_tail)
+            l2_tail->next=NULL;
+        
+        
+        if(l1_tail){
+            l1_tail->next = l2_head;
+            return l1_head;
+        }else{
+            return l2_head;
+        }
+        
+        
+        /*
+          ListNode* l1_head =NULL;
+        ListNode* l2_head =NULL;
+        ListNode* l1_tail =NULL;
+        ListNode* l2_tail =NULL;
+        
+        while(head){
+            if(head->val < x){
+                
+                if(!l1_head){
                     l1_head=new ListNode(head->val);
                     l1_tail=l1_head;
                 }else{
@@ -50,6 +99,7 @@ public:
             return l2_head;
         }
         
+        */
         
     }
 };
