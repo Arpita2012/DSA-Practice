@@ -4,21 +4,28 @@ public:
         
         int f=0;
         int l=nums.size()-1;
+        int first_pos=-1;
+        int last_pos=-1;
         
-        bool flag = false;
+        
         
         while(f<=l){
             int m= f+ (l-f)/2;
             
             if(nums[m]==target){
                 
-                while(nums[f]!=target){
-                    f++;
+                first_pos = m-1;
+                while(first_pos >=0 && nums[first_pos]==target){
+                    first_pos--;
                 }
-                while(nums[l]!=target){
-                    l--;
+                last_pos=m+1;
+                while(last_pos <nums.size() && nums[last_pos]==target){
+                    last_pos++;
                 }
-                flag=true;
+                first_pos++;
+                last_pos--;
+                
+                
                 break;
                 
                 
@@ -30,15 +37,9 @@ public:
             
             
         }
-        if (flag){
-        vector<int> ans = {f,l};
-                    return ans;
         
-        }
-        else{
-          vector<int> ans = {-1,-1};  
-                    return ans;
-        }
-
+         vector<int> ans = {first_pos,last_pos};
+        return ans;
+        
     }
 };
