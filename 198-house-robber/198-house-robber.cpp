@@ -23,9 +23,9 @@ public:
         int prev_prev =nums[0];
         //int prev =nums[1];
         MAX=max(nums[1],prev_prev);
-        int t;
+        
         for(int i=2 ;i<nums.size(); i++){
-            t = MAX;
+            int t= MAX;
             MAX= max(nums[i]+ prev_prev, MAX );
             prev_prev=t;
             
