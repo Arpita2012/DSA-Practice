@@ -2,6 +2,9 @@ class Solution {
 public:
 string multiply(string s, string r) {
 
+    
+    
+    
     vector<string>now;
     
     if (s.size()<r.size()) swap(s,r);
@@ -85,6 +88,8 @@ string multiply(string s, string r) {
     if (tem.size()==0) ans="0";
     
     return ans;
+    
+    
         
     
 }
