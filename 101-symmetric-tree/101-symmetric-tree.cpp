@@ -42,16 +42,22 @@ public:
     }*/
     
     
-     bool helper(TreeNode* root1, TreeNode* root2)
-     {
-        if(!root1 and !root2) return true;
-        else if(!root1 || !root2) return false;
+     bool isSameTree(TreeNode* p, TreeNode* q) {
+        
+        if(!p and !q) 
+            return true;
+        else if(!p || !q) 
+            return false;
 
-        if(root1->val != root2->val) return false;
-        return helper(root1->right, root2->left) && helper(root1->left, root2->right);
+        if(p->val != q->val) 
+            return false;
+        
+        return isSameTree(p->left, q->right) && isSameTree(p->right, q->left);
+        
     }
+    
     public:
     bool isSymmetric(TreeNode* root) {
-        return helper(root->left, root->right);
+        return isSameTree(root->left, root->right);
     }
 };
