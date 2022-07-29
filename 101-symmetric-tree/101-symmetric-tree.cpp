@@ -43,15 +43,15 @@ public:
     
     
      bool helper(TreeNode* root1, TreeNode* root2)
- {
-    if(!root1 and !root2) return true;
-    else if(!root1 || !root2) return false;
-    
-    if(root1->val != root2->val) return false;
-    return helper(root1->right, root2->left) && helper(root1->left, root2->right);
-}
-public:
-bool isSymmetric(TreeNode* root) {
-    return helper(root->left, root->right);
-}
+     {
+        if(!root1 and !root2) return true;
+        else if(!root1 || !root2) return false;
+
+        if(root1->val != root2->val) return false;
+        return helper(root1->right, root2->left) && helper(root1->left, root2->right);
+    }
+    public:
+    bool isSymmetric(TreeNode* root) {
+        return helper(root->left, root->right);
+    }
 };
