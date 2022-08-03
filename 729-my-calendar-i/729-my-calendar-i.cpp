@@ -1,6 +1,3 @@
-  bool CMP (pair<int,int> const & x, pair<int,int> const & y){
-        return x.first < y.first;
-    }
     
 class MyCalendar {
 public:
@@ -12,7 +9,7 @@ public:
   
     bool book(int start, int end) {
         
-        //sort(C.begin(), C.end(), &CMP);
+        
         
         for(auto x : C){
             
@@ -34,7 +31,10 @@ public:
         return true;
         
         
-        /*if(C.size()==0){
+        /*
+        //to be thought
+        
+        if(C.size()==0){
             C.push_back({start,end});
             return true;
         }
