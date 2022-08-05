@@ -10,7 +10,7 @@
  * };
  */
 class BSTIterator {
-     vector<int> save;
+   /*  vector<int> save;
     int i=-1;
     void inorder(TreeNode* root ){
         if(!root){
@@ -44,7 +44,63 @@ class BSTIterator {
         }else{
             return false;
         }
+    }*/
+     
+    public:
+    
+    stack<TreeNode*> S;
+    TreeNode* curr =NULL;
+   
+    BSTIterator(TreeNode* root) {
+        
+        
+        
+        curr=root;
+        
+        while(curr){
+            S.push(curr);
+            curr=curr->left;
+        }
+        
+        
+        
     }
+    
+    int next() {
+       //TreeNode * T = S.top();
+       //S.pop();
+       
+       //if(S.size()>0){
+           TreeNode * temp = S.top(); 
+           S.pop();
+
+           if(temp->right){
+               curr = temp->right;
+                 while(curr){
+                    S.push(curr);
+                    curr=curr->left;
+                }
+           }
+           
+           //S.push(temp);
+
+       //}
+        
+        return temp->val;  
+    }
+    
+    bool hasNext() {
+        if(S.empty() && curr==NULL){
+            return false;
+        }
+        else
+            return true;
+        
+        
+    }
+    
+    
+    
 };
 
 /**
