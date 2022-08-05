@@ -10,7 +10,8 @@
  * };
  */
 class BSTIterator {
-   /*  vector<int> save;
+   /*// METHOD 1 
+   vector<int> save;
     int i=-1;
     void inorder(TreeNode* root ){
         if(!root){
@@ -48,6 +49,7 @@ class BSTIterator {
      
     public:
     
+    //METHOD 2 O(h) - space complexity
     stack<TreeNode*> S;
     TreeNode* curr =NULL;
    
@@ -67,10 +69,7 @@ class BSTIterator {
     }
     
     int next() {
-       //TreeNode * T = S.top();
-       //S.pop();
        
-       //if(S.size()>0){
            TreeNode * temp = S.top(); 
            S.pop();
 
@@ -82,9 +81,7 @@ class BSTIterator {
                 }
            }
            
-           //S.push(temp);
-
-       //}
+          
         
         return temp->val;  
     }
