@@ -1,7 +1,7 @@
 class Solution {
 public:
     int minSetSize(vector<int>& arr) {
-        
+        /*
         int N = arr.size();
         priority_queue<pair<int,int>> pq;
         map<int,int> M;
@@ -33,7 +33,41 @@ public:
             
         }
         
-        return S.size();
+        return S.size();*/
+        
+        int N = arr.size();
+        priority_queue<int> pq;
+        map<int,int> M;
+        
+        for(int i=0 ; i< N; i++){
+            M[arr[i]]++;
+        }
+        
+        for(auto x : M){
+            pq.push(x.second);
+        }
+        
+        
+        int MAX_FREQ=0;
+        
+        int cnt =0;
+        
+        while(!pq.empty()){
+           int P = pq.top();
+            pq.pop();
+            
+            ;
+            MAX_FREQ+= P;
+            
+            cnt++;
+            if(MAX_FREQ>=N/2){
+                break;
+            }
+            
+            
+        }
+        
+        return cnt;
 
         
         
