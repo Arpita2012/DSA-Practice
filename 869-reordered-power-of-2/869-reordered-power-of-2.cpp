@@ -31,15 +31,15 @@ public:
         }
         
 //         cout<<endl<<NUM<<endl;
-//          bitset<64> b1(NUM);
+         bitset<64> b1(NUM);
         
-//         return b1.count()==1? true:false;
+        return b1.count()==1? true:false;
         
-         while (NUM > 0 && ((NUM & 1) == 0))
-            NUM >>= 1;
+//          while (NUM > 0 && ((NUM & 1) == 0))
+//             NUM >>= 1;
 
        
-        return NUM == 1;
+//         return NUM == 1;
         
         
     }
