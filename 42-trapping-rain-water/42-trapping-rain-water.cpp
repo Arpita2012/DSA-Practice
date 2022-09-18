@@ -1,7 +1,7 @@
 class Solution {
 public:
     int trap(vector<int>& height) {
-        
+        /* DP TC : O(N) | SC : O(N)
         int N = height.size();
         
         if(N==0){
@@ -31,6 +31,43 @@ public:
         }
         
         return water;
+        */
+        
+        
+        //Stack  TC - O(N) | SC - O(N)
+        
+        
+        stack<int>S;
+         int N = height.size();
+        int water =0 ;
+        for(int current=0 ; current<N; current++){
+            
+            //int current = height[i];
+            
+            while(!S.empty() and height[current] > height[S.top()]  ){
+                int Top = S.top();
+                S.pop();
+                
+                if(S.empty()){
+                    break;
+                }
+                
+                int distance = current - S.top() - 1;
+                int bounded_height = min(height[current], height[S.top()]) - height[Top];
+                
+                water += distance * bounded_height;
+                
+                
+            }
+            
+            S.push(current);
+            
+        }
+        
+        return water;
+        
+        
+        
         
     }
 };
