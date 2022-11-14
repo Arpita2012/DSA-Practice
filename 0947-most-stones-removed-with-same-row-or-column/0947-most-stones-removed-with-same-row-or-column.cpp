@@ -1,31 +1,31 @@
 class Solution {
 public:
-    bool isValid(vector<int>&pos1, vector<int>&pos2)
-    {
-        if (pos1[0] == pos2[0]) return true;
-        if (pos1[1] == pos2[1]) return true;
-        return false;
-    }
-    void dfs(vector<vector<int>>&stones, vector<bool>&visited, int currIdx)
-    {
-        visited[currIdx] = true;
-        for (int i = 0; i < stones.size(); i++)
-        {
-            if (visited[i]) continue;
-            if (isValid(stones[i], stones[currIdx]))  dfs(stones, visited, i);
-        }
-    }
-    int removeStones(vector<vector<int>>& stones)
-    {
+   int removeStones(vector<vector<int>>& stones) {
+        
+        int res = 0;
         int n = stones.size();
-        vector<bool>visited(n, false);
-        int componentCount = 0;
-        for (int i = 0; i < n; i++)
+        vector<bool> visited(n, false);
+        
+        for(int i=0; i<n; i++)
         {
-            if (visited[i]) continue;
-            dfs(stones, visited, i);
-            componentCount++;
+            if(!visited[i])
+                res += dfs(stones, visited, i) - 1;
         }
-        return (n - componentCount); 
+        
+        return res;
+    }
+    
+    int dfs(vector<vector<int>>& stones, vector<bool>& visited, int curr)
+    {
+        if(visited[curr]) return 0;
+        int ret = 1;
+        visited[curr] = true;
+        
+        for(int i=0; i<stones.size(); i++)
+        {
+            if(!visited[i] && (stones[i][0] == stones[curr][0] || stones[curr][1] == stones[i][1]))
+                ret += dfs(stones, visited, i);
+        }
+        return ret;
     }
 };
